@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo List</title>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
+        background-color: rgba(7, 57, 193, 0.521);
+        font-family: Arial, sans-serif;
+    }
+    #parent{
+        text-align: center;
+    }
+    #main{
+        min-height: 200px;
+        min-width: 300px;
+        border: 2px solid;
+        border-radius: 20px;
+        background-color: aliceblue;
+        padding: 20px 45px 45px 45px;
+    }
+    input{
+        padding: 8px;
+        border: 2px solid #0739c1;
+        border-radius: 8px;
+        outline: none;
+    }
+    button{
+        padding: 8px 14px;
+        border: none;
+        border-radius: 8px;
+        background-color: #0739c1;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: #0a2a8a;
+    }
+    #taskList{
+        text-align: left;
+    }
+    ul{
+        list-style: none;
+        margin-top: 15px;
+        padding: 0;
+    }
+    li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 8px;
+        border: 2px solid #0739c1;
+        border-radius: 10px;
+        background-color: white;
+    }
+    li:hover{
+        background-color: #e6edff;
+    }
+</style>
+</head>
+<body>
+
+    <div id="main">
+        <div id="parent">
+            <h1>My-todo-list</h1>
+            <input type="text" id="taskinput" placeholder="Enter Your task">
+            <button id="addbtn">Add Task</button>
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+
+    <script>
+        let taskinput = document.getElementById("taskinput")
+        let addbtn = document.getElementById("addbtn")
+        let tasklist = document.getElementById("taskList")
+
+        addbtn.addEventListener("click", function(){
+            let task = taskinput.value
+
+            if (task === "") {
+                return
+            }
+
+            let li = document.createElement("li")
+            li.textContent = task
+
+            let deletebtn = document.createElement("button")
+            deletebtn.textContent = "delete"
+
+            deletebtn.addEventListener("click", function(){
+                li.remove()
+            })
+
+            li.appendChild(deletebtn)
+            tasklist.appendChild(li)
+
+            taskinput.value = ""
+            
+            editbtn.addEventListener("click", function(){
+            let newTask = prompt("Edit your task", p.textContent)
+
+            if (newTask === null || newTask === "") {
+        return
+    }
+
+    p.textContent = newTask
+})
+        })
+    </script>
+</body>
+</html>
